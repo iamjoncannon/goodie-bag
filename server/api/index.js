@@ -1,4 +1,6 @@
 'use strict'
+const axios = require('axios')
+const { db, Candy } = require('./../db/models/Candy')
 
 const router = require('express').Router()
 
@@ -13,6 +15,32 @@ const router = require('express').Router()
 //
 // And for your `/api/kittens` routes:
 // router.use('/kittens', require('./kittens'))
+
+router.get('/candy', async (req, res, next)=>{
+
+	let data  = await Candy.findAll()
+	res.json(data)
+	res.end()
+
+})
+
+router.put('/candy', async (req, res, next)=>{
+
+	const [numberOfAffectedRows, affectedRows]  = await Candy.update( 
+		    {
+		      quantity: req.body.quant, 
+		    },
+		    {
+		      where: { id: req.body.id, },
+		      returning: true,
+		      plain: true
+		    }
+		  );
+	
+	res.json(affectedRows.dataValues)
+	res.end()
+
+})
 
 // If someone makes a request that starts with `/api`,
 // but you DON'T have a corresponding router, this piece of

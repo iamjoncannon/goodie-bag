@@ -28,7 +28,96 @@ If you finish the above 'get all candies' functionality, feel free to branch out
 - Get single candy
   - Navigating to `/candies/:id` will display all detail about that candy
   - Clicking on a candy in the all-candies view will navigate to that candy's single view
+
 - Update candy quantity
   - The single candy view has 2 buttons, to increase or decrease that candy's quantity
+
 - Go wild on the UI!
   - Try out some UI libraries like Material, Bootstrap, or Semantic... to name a few
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////
+
+strategy:
+
+Write a candies sub-reducer to manage candies in your Redux store
+
+	- thunk method responds with list - 
+		- store has 'candies' array
+		- store has thunk that makes ajax to API and creates candies field on state
+			(method will eventually be wired to candyList component)
+
+
+
+Write a component to display a list of all candies
+
+	- main has a child that maps over candies array and renders a list
+
+
+
+Display the all-candies component when the url matches `/candies`
+
+	- React Router- NavLink or Link component
+	- link to the Goodie Bag component in the nav bar 
+
+
+
+Add links to the navbar that can be used to navigate to the all-candies view and the home view (`/`)
+
+	- same- create links and then wire into react router link
+
+
+
+Get single candy
+
+Navigating to `/candies/:id` will display all detail about that candy
+Clicking on a candy in the all-candies view will navigate to that candy's single view
+
+	- renders a single page component- single page component 
+
+
+
+Update candy quantity
+The single candy view has 2 buttons, to increase or decrease that candy's quantity
+
+	- button triggers a thunk which triggers a database store, return the new
+	  candy state 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
